@@ -6,13 +6,6 @@
 
     const randomRecipes = data.props.randomRecipes;
 
-    /**
-     * @param {string} str
-     * @returns {string}
-     */
-    const removeHTMLTags = (str) => {
-        return str.replace(/<[^>]*>?/gm, '');
-    }
 </script>
 
 <section class="grid gap-5">
@@ -29,13 +22,13 @@
     <Shuffle />
   </div>
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3"
   >
     {#each randomRecipes as recipe}
       <Card
         title={recipe.title}
         url={`/recipes/${recipe.id}`}
-        description={removeHTMLTags(recipe.summary.slice(0, 150))}
+        description={recipe.summary}
         imageUrl={recipe.image}
       />
     {/each}

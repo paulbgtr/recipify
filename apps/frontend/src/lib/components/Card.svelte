@@ -10,6 +10,14 @@
 
     /** @type {string} */
     export let url;
+
+    /**
+     * @param {string} str
+     * @returns {string}
+     */
+    const removeHTMLTags = (str) => {
+        return str.replace(/<[^>]*>?/gm, '');
+    }
 </script>
 
 <a class="hover:opacity-80 duration-200" href={url}>
@@ -21,7 +29,9 @@
       <h2 class="card-title">
         {title}
       </h2>
-      <p>{description}</p>
+      <p class="overflow-auto h-24">
+        {removeHTMLTags(description.slice(0, 150))}
+      </p>
     </div>
   </div>
 </a>
