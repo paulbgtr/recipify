@@ -1,6 +1,18 @@
 <script>
     import Card from "$lib/components/Card.svelte";
     import Shuffle from "$lib/components/Shuffle.svelte";
+
+    export let data;
+
+    const randomRecipes = data.props.randomRecipes;
+
+    /**
+     * @param {string} str
+     * @returns {string}
+     */
+    const removeHTMLTags = (str) => {
+        return str.replace(/<[^>]*>?/gm, '');
+    }
 </script>
 
 <section class="grid gap-5">
@@ -17,11 +29,13 @@
     <Shuffle />
   </div>
   <div class="grid grid-cols-3 gap-3">
-    <Card
-      title="test"
-      url="/recipes/test"
-      description="test"
-      imageUrl="https://images.immediate.co.uk/production/volatile/sites/30/2017/11/Vegetable-soup-recipes-1eb6583.jpg?resize=768,574"
-    />
+    {#each randomRecipes as recipe}
+      <Card
+        title={recipe.title}
+        url="/recipes/test"
+        description={removeHTMLTags(recipe.summary.slice(0, 150))}
+        imageUrl={recipe.image}
+      />
+    {/each}
   </div>
 </section>
