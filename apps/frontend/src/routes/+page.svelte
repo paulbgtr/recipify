@@ -9,6 +9,7 @@
       <h2 class="font-bold text-2xl">Shuffled recipes that may interest you</h2>
       <p class="italic font-gray-500">
         (If you have special dietary requirements, you can set them in your <a
+          class="link"
           href="/settings">settings</a
         >.)
       </p>
