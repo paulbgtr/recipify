@@ -28,11 +28,13 @@
     </div>
     <Shuffle />
   </div>
-  <div class="grid grid-cols-3 gap-3">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+  >
     {#each randomRecipes as recipe}
       <Card
         title={recipe.title}
-        url="/recipes/test"
+        url={`/recipes/${recipe.id}`}
         description={removeHTMLTags(recipe.summary.slice(0, 150))}
         imageUrl={recipe.image}
       />
