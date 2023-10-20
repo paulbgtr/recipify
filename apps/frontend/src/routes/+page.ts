@@ -27,6 +27,7 @@ export const load = async () => {
   return {
     props: {
       randomRecipes,
+      handleFetchRandomRecipes,
     },
   };
 };
