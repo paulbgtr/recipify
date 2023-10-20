@@ -17,7 +17,6 @@ A fun way to find recipes based on ingredients you have at home (Or just get som
 git clone https://github.com/paulbgtr/recipify
 cd recipify
 npm i
-npm run dev
 ```
 
 ### Obtaining an API key
@@ -26,6 +25,12 @@ You will need an API key from [Spoonacular](https://spoonacular.com/food-api) to
 
 ```bash
 PUBLIC_SPOONACULAR_API_KEY=<your key> > .env
+```
+
+After that, just run the project by typing
+
+```bash
+npm run dev
 ```
 
 ## Licence
