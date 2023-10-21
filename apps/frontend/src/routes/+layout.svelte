@@ -6,7 +6,7 @@
 
 <div>
   <Navbar />
-  <div class="grid py-3 sm:px-6 md:px-12 lg:px-24">
+  <div class="container mx-auto mt-5">
     <slot />
   </div>
 </div>
