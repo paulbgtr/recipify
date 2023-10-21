@@ -1,6 +1,6 @@
 import { PUBLIC_SPOONACULAR_API_KEY } from "$env/static/public";
 
-export const load = ({ params }) => {
+export const load = async ({ params }) => {
   const recipeId = params.slug;
 
   /**
@@ -26,11 +26,11 @@ export const load = ({ params }) => {
     }
   };
 
-  const recipeInfo = handleFetchRecipe(recipeId);
+  const recipeInfo = await handleFetchRecipe(recipeId);
 
   return {
     props: {
-      recipeInfo,
+      ...recipeInfo,
     },
   };
 };
