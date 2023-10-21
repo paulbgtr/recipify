@@ -26,11 +26,36 @@ export const load = async ({ params }) => {
     }
   };
 
+  /**
+   *
+   * @param {string} recipeId
+   */
+  const handleFetchInstructions = async (recipeId) => {
+    const url = `https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions?apiKey=${PUBLIC_SPOONACULAR_API_KEY}`;
+
+    try {
+      const res = await fetch(url, {
+        method: "Get",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+
+      return data;
+    } catch (err) {
+      return err;
+    }
+  };
+
   const recipeInfo = await handleFetchRecipe(recipeId);
+  const instructions = await handleFetchInstructions(recipeId);
 
   return {
     props: {
       ...recipeInfo,
+      instructions,
     },
   };
 };
