@@ -18,7 +18,7 @@
     }
 </script>
 
-<div class="my-2">
+<div class="mt-3">
   <span
     class={`p-2 font-bold rounded-xl bg-${handleRateHealthScore(healthScore)}`}
   >
