@@ -6,6 +6,8 @@
     import Comment from '$lib/components/comment/Comment.svelte';
 
     export let data;
+
+    const instructions =  data.props.instructions[0].steps
 </script>
 
 <section>
@@ -43,7 +45,7 @@
     </div>
     <div>
       <h3 class="w-1/2 text-lg font-bold">Steps</h3>
-      {#each data.props.instructions[0].steps as instruction}
+      {#each instructions as instruction}
         <p>{instruction.step}</p>
       {/each}
     </div>
