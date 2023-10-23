@@ -7,15 +7,15 @@
 
 </script>
 
-<section class="grid gap-10 lg:grid-cols-2">
-  <img
-    class="w-full max-w-2xl rounded-xl"
-    src={data.props.image}
-    alt={data.props.title}
-  />
-  <div>
-    <h1 class="text-2xl font-bold">{data.props.title}</h1>
+<section>
+  <div class="grid gap-10 lg:grid-cols-2">
+    <img
+      class="w-full max-w-2xl rounded-xl"
+      src={data.props.image}
+      alt={data.props.title}
+    />
     <div>
+      <h1 class="text-2xl font-bold">{data.props.title}</h1>
       <div class="italic text-gray-500">
         <p>
           {data.props.servings}
@@ -39,9 +39,12 @@
       <HealthScore healthScore={data.props.healthScore} />
     </div>
   </div>
+  <div class="mt-3">
+    <h2 class="text-xl font-bold">Brief summary</h2>
+    <p>
+      {removeHTMLTags(data.props.summary)}
+    </p>
+  </div>
 </section>
 
-<h2 class="text-xl font-bold">Brief summary</h2>
-<p>
-  {removeHTMLTags(data.props.summary)}
-</p>
+<section />
