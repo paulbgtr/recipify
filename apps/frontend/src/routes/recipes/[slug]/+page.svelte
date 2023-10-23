@@ -2,6 +2,7 @@
     import { removeHTMLTags } from '$lib/utils/removeHTMLTags.js';
     import HealthScore from '$lib/components/HealthScore.svelte';
     import Rating from '$lib/components/Rating.svelte';
+    import Comment from '$lib/components/comment/Comment.svelte';
 
     export let data;
 
@@ -47,4 +48,9 @@
   </div>
 </section>
 
-<section />
+<div class="divider" />
+
+<section>
+  <h2 class="mb-3 text-2xl font-bold">0 Comments</h2>
+  <Comment />
+</section>
