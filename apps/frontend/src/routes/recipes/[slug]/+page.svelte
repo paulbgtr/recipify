@@ -16,9 +16,7 @@
   <div>
     <h1 class="text-2xl font-bold">{data.props.title}</h1>
     <div>
-      <div class="my-3">
-        <Rating />
-        <HealthScore healthScore={data.props.healthScore} />
+      <div class="italic text-gray-500">
         <p>
           {data.props.servings}
           servings
@@ -31,12 +29,14 @@
           </span>
         </p>
       </div>
+      <Rating />
       <h3 class="text-lg font-bold">
         Ingredients that you need to prepare this recipe
       </h3>
       {#each data.props.extendedIngredients as ingredient}
         <p>{ingredient.original}</p>
       {/each}
+      <HealthScore healthScore={data.props.healthScore} />
     </div>
   </div>
 </section>
