@@ -1,4 +1,4 @@
-<div class="gap-3 p-2 shadow-md rounded-xl rating">
+<div class="gap-3 p-2 my-1 rating">
   <div>
     <input type="radio" name="rating-3" class="bg-red-400 mask mask-heart" />
     <input
