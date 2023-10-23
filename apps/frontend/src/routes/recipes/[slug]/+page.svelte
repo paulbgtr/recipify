@@ -1,6 +1,7 @@
 <script>
     import { removeHTMLTags } from '$lib/utils/removeHTMLTags.js';
     import HealthScore from '$lib/components/HealthScore.svelte';
+    import Rating from '$lib/components/Rating.svelte';
 
     export let data;
 
@@ -16,6 +17,7 @@
     <h1 class="text-2xl font-bold">{data.props.title}</h1>
     <div>
       <div class="my-3">
+        <Rating />
         <HealthScore healthScore={data.props.healthScore} />
         <p>
           {data.props.servings}
