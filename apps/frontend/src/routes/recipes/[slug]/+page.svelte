@@ -45,9 +45,11 @@
     </div>
     <div>
       <h3 class="w-1/2 text-lg font-bold">Steps</h3>
-      {#each instructions as instruction}
-        <p>{instruction.step}</p>
-      {/each}
+      <ul class="list-disc">
+        {#each instructions as instruction}
+          <li>{instruction.step}</li>
+        {/each}
+      </ul>
     </div>
   </div>
   <div class="mt-3">
