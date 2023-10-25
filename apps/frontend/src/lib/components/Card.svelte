@@ -8,7 +8,7 @@
     export let title;
 
     /** @type {string}*/
-    export let description;
+    export let description = "";
 
     /** @type {string} */
     export let url;
@@ -23,9 +23,11 @@
       <h2 class="card-title">
         {title}
       </h2>
-      <p class="h-24 overflow-auto">
-        {`${removeHTMLTags(description.slice(0, 100))}...`}
-      </p>
+      {#if description}
+        <p class="h-24 overflow-auto">
+          {`${removeHTMLTags(description.slice(0, 100))}...`}
+        </p>
+      {/if}
     </div>
   </div>
 </a>
