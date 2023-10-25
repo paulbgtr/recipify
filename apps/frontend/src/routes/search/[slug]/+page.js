@@ -25,9 +25,12 @@ export const load = async ({ params }) => {
   const extractedData = await handleFetchRecipe(recipePart);
   const matchedRecipes = extractedData.results;
 
+  const searchParams = params.slug;
+
   return {
     props: {
       matchedRecipes,
+      searchParams,
     },
   };
 };
