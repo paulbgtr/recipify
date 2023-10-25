@@ -30,7 +30,7 @@
       placeholder="Search"
       class="w-24 input input-bordered md:w-auto join-item"
     />
-    <button class="btn btn-neutral join-item" type="submit">
+    <button class="btn join-item" type="submit">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
