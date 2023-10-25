@@ -8,7 +8,7 @@ export const load = async ({ params }) => {
    * @param {string} recipePart
    */
   const handleFetchRecipe = async (recipePart) => {
-    const url = `https://api.spoonacular.com/recipes/complexSearch?${PUBLIC_SPOONACULAR_API_KEY}&${recipePart}`;
+    const url = `https://api.spoonacular.com/recipes/complexSearch?query=${recipePart}&apiKey=${PUBLIC_SPOONACULAR_API_KEY}`;
 
     const res = await fetch(url, {
       method: "GET",
@@ -22,11 +22,12 @@ export const load = async ({ params }) => {
     return data;
   };
 
-  const data = await handleFetchRecipe(recipePart);
+  const extractedData = await handleFetchRecipe(recipePart);
+  const matchedRecipes = extractedData.results;
 
   return {
     props: {
-      data,
+      matchedRecipes,
     },
   };
 };
