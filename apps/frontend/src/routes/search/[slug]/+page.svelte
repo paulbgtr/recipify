@@ -1,12 +1,34 @@
 <script>
+  import { goto } from '$app/navigation';
     import Card from '$lib/components/Card.svelte';   
 
     export let data;
+
+    /**
+     * 
+     * @param {*} e
+     */
+    const onSubmit = e => {
+        const formData = new FormData(e.target);
+
+        /**
+         *  @type {*}
+         */
+        const data = {}
+
+        for (let field of formData) {
+            const [key,value ]= field
+            data[key]=  value
+        }
+
+        goto(`/search/${data.search}`)
+    }
 </script>
 
-<div class="w-full join">
+<form on:submit|preventDefault={onSubmit} class="w-full join">
   <input
     type="text"
+    name="search"
     value={data.props.searchParams}
     placeholder="Type here"
     class="w-full mb-10 join-item input input-bordered"
@@ -25,7 +47,7 @@
       />
     </svg>
   </button>
-</div>
+</form>
 
 <div
   class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4"
