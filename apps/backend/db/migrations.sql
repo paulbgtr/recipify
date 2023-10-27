@@ -6,4 +6,4 @@ create table
     password text not null,
     salt text not null,
     session_token text not null
-  )
+)
