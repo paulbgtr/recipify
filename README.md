@@ -4,10 +4,17 @@ A fun way to find recipes based on ingredients you have at home (Or just get som
 
 ## Technologies Used
 
+### Frontend
+
 - [SvelteKit](https://kit.svelte.dev/) - A framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.
-- [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
 - [tailwindcss](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
 - [daisyui](https://daisyui.com/) - A component library for Tailwind CSS.
+
+### Backend
+
+- [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
+- [PostgreSQL](https://www.postgresql.org/) - The World's Most Advanced Open Source Relational Database.
+- [Drizzle](https://orm.drizzle.team/) - A simple ORM for Node.js.
 
 ## Usage
 
