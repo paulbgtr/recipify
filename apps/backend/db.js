@@ -2,6 +2,7 @@ import pkg from "pg";
 const { Client } = pkg;
 import { drizzle } from "drizzle-orm/node-postgres";
 import { users } from "./db/schema.js";
+import { eq } from "drizzle-orm";
 import "dotenv/config";
 
 const client = new Client({
@@ -17,70 +18,31 @@ export const getUsers = async () => {
 };
 
 /**
- *
- * @param {string} email
+ * @param {number} username
  */
-export const getUserByEmail = async (email) => {
+export const getUserByUsername = async (username) => {
   const res = await db
     .select()
     .from(users)
-    .where(eq(users.email, email));
-  return res;
-};
-
-/**
- * @param {string} sessionToken
- */
-export const getUserBySessionToken = async (sessionToken) => {
-  const res = await db
-    .select()
-    .from(users)
-    .where(eq(users.session_token, sessionToken));
-  return res;
+    .where(eq(users.username, username));
+  return res[0];
 };
 
 /**
  * @param {string} username
  * @param {string} email
  * @param {string} password
- * @param {string} salt
- * @param {string} session_token
+ * @param {string} jwt
  */
-export const createUser = async (
-  username,
-  email,
-  password,
-  salt,
-  session_token
-) => {
-  const res = await db
+export const createUser = async (username, email, password) => {
+  await db
     .insert(users)
     .values({
       username,
       email,
       password,
-      salt,
-      session_token,
     })
     .returning({
-      id: users.id,
-      username: users.username,
-      email: users.email,
-    });
-  return res;
-};
-
-/**
- * @param {number} id
- * @param {string} updatedUser
- */
-export const updateUserById = async (id, updatedUser) => {
-  await db
-    .update(users)
-    .set(updatedUser)
-    .where(eq(users.id, id))
-    .returning({
-      id: users.id,
       username: users.username,
       email: users.email,
     });
