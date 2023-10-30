@@ -3,12 +3,18 @@ import cors from "cors";
 import router from "./router.js";
 import bodyParser from "body-parser";
 import "dotenv/config";
+import pkg from "express-jwt";
+const { expressjwt } = pkg;
 
 const app = express();
-
-app.use(bodyParser.json());
-app.use(router);
 app.use(cors());
+app.use(bodyParser.json());
+app.use(
+  expressjwt({ secret: process.env.SECRET_KEY, algorithms: ["HS256"] }).unless({
+    path: ["/signin", "/signup"],
+  })
+);
+app.use(router);
 
 app.get("/", router);
 
