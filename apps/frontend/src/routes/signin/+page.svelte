@@ -1,4 +1,6 @@
 <script>
+    import { goto } from "$app/navigation";    
+
     let username = "";
     let password = "";
 
@@ -18,6 +20,7 @@
         
         if (json.token) {
             localStorage.setItem("token", json.token)
+            goto("/")
         }
         } catch (err) {
             console.log(err);
