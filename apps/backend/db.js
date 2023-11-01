@@ -35,7 +35,7 @@ export const getUserByUsername = async (username) => {
  * @param {string} jwt
  */
 export const createUser = async (username, email, password) => {
-  await db
+  return await db
     .insert(users)
     .values({
       username,
