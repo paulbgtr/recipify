@@ -1,14 +1,35 @@
+<script>
+    /**
+     * @type {string}
+     */
+    export let username;
+    /**
+     * @type {string}
+     */
+    export let userAvatar;
+    /**
+     * @type {string}
+     */
+    export let commentBody;
+    /**
+     * @type {string}
+     */
+    export let commentDate;
+</script>
+
 <div class="flex gap-3">
   <div class="avatar">
     <div class="w-24 rounded-full">
-      <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+      <img src={userAvatar} alt={username} />
     </div>
   </div>
   <div>
-    <h5 class="text-xl font-bold">John Doe</h5>
+    <div class="flex gap-3">
+      <h5 class="text-xl font-bold">{username}</h5>
+      <span class="text-sm italic text-gray-500">{commentDate}</span>
+    </div>
     <p class="text-gray-500">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate,
-      eaque? Facilis, facere veritatis harum nemo nisi quia laudantium sunt?
+      {commentBody}
     </p>
     <div class="mt-3">
       <button>Reply</button>
