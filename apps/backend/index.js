@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(
   expressjwt({ secret: process.env.SECRET_KEY, algorithms: ["HS256"] }).unless({
-    path: ["/signin", "/signup"],
+    path: ["/signin", "/signup", /^\/comments\/.+$/],
   })
 );
 app.use(router);
