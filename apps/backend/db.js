@@ -2,6 +2,7 @@ import pkg from "pg";
 const { Client } = pkg;
 import { drizzle } from "drizzle-orm/node-postgres";
 import { users } from "./db/schema.js";
+import { comments } from "./db/schema.js";
 import { eq } from "drizzle-orm";
 import "dotenv/config";
 
@@ -46,4 +47,33 @@ export const createUser = async (username, email, password) => {
       username: users.username,
       email: users.email,
     });
+};
+
+/**
+ * @param {number} recipe_id
+ */
+export const getCommentsByRecipeId = async (recipe_id) => {
+  const res = await db
+    .select()
+    .from(comments)
+    .where(eq(comments.recipe_id, recipe_id));
+  return res[0];
+};
+
+/**
+ * @param {number} recipe_id
+ * @param {number} user_id
+ * @param {number} rating
+ * @param {string} body
+ */
+export const createComment = async (recipe_id, user_id, rating, body) => {
+  return await db
+    .insert(comments)
+    .values({
+      recipe_id,
+      user_id,
+      rating,
+      body,
+    })
+    .returning();
 };
