@@ -49,13 +49,37 @@ export const load = async ({ params }) => {
     }
   };
 
+  /**
+   * @param {string} recipeId
+   */
+  const handleFetchComments = async (recipeId) => {
+    const url = "http://localhost:3000";
+
+    try {
+      const res = await fetch(`${url}/comments/${recipeId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const json = await res.json();
+
+      return json;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const recipeInfo = await handleFetchRecipe(recipeId);
   const instructions = await handleFetchInstructions(recipeId);
+  const comments = await handleFetchComments(recipeId);
 
   return {
     props: {
       ...recipeInfo,
       instructions,
+      comments,
     },
   };
 };
