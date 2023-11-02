@@ -4,10 +4,11 @@
     import Rating from '$lib/components/Rating.svelte';
     import AddComment from '$lib/components/comment/AddComment.svelte';
     import Comment from '$lib/components/comment/Comment.svelte';
-
+    
     export let data;
 
     const instructions =  data.props.instructions[0].steps
+    const comments = data.props.comments
 </script>
 
 <section>
@@ -63,7 +64,14 @@
 <div class="divider" />
 
 <section>
-  <h2 class="mb-3 text-xl font-bold">0 Comments</h2>
+  <h2 class="mb-3 text-xl font-bold">Comments</h2>
   <AddComment />
-  <Comment />
+  {#each comments as comment}
+    <Comment
+      username={comment.username}
+      commentBody={comment.body}
+      commentDate={comment.created_at}
+      userAvatar="https://i0.wp.com/picjumbo.com/wp-content/uploads/woman-enjoying-the-sunset-by-the-sea-free-photo.jpg?w=600&quality=80"
+    />
+  {/each}
 </section>
