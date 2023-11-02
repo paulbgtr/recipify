@@ -57,7 +57,7 @@ export const getCommentsByRecipeId = async (recipe_id) => {
     .select()
     .from(comments)
     .where(eq(comments.recipe_id, recipe_id));
-  return res[0];
+  return res;
 };
 
 /**
