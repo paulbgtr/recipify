@@ -20,6 +20,7 @@
         
         if (json.token) {
             localStorage.setItem("token", json.token)
+            localStorage.setItem("username", username)
             goto("/")
         }
         } catch (err) {
