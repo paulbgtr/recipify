@@ -10,7 +10,7 @@ export const users = pgTable("users", {
 export const comments = pgTable("comments", {
   id: serial("id").primaryKey(),
   recipe_id: integer("recipe_id").notNull(),
-  user_id: text("user_id").notNull(),
+  username: text("username").notNull(),
   rating: integer("rating")
     .notNull()
     .default(0),
