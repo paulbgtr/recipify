@@ -78,6 +78,7 @@ export const load = async ({ params }) => {
   return {
     props: {
       ...recipeInfo,
+      recipeId,
       instructions,
       comments,
     },
