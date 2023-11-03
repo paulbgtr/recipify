@@ -7,6 +7,8 @@
     
     export let data;
 
+    let rating = 0;
+
     const instructions =  data.props.instructions[0].steps
     const comments = data.props.comments
 </script>
@@ -33,7 +35,43 @@
           </span>
         </p>
       </div>
-      <Rating />
+      <div class="gap-3 p-2 my-1 rating">
+        <div>
+          <input
+            on:click={() => (rating = 1)}
+            type="radio"
+            name="rating-3"
+            class="bg-red-400 mask mask-heart"
+          />
+          <input
+            on:click={() => (rating = 2)}
+            type="radio"
+            name="rating-3"
+            class="bg-orange-400 mask mask-heart"
+            checked
+          />
+          <input
+            on:click={() => (rating = 3)}
+            type="radio"
+            name="rating-3"
+            class="bg-yellow-400 mask mask-heart"
+          />
+          <input
+            on:click={() => (rating = 4)}
+            type="radio"
+            name="rating-3"
+            class="mask mask-heart bg-lime-400"
+          />
+          <input
+            on:click={() => (rating = 5)}
+            type="radio"
+            name="rating-3"
+            class="bg-green-400 mask mask-heart"
+          />
+        </div>
+
+        <span class="font-bold"> 0 ratings </span>
+      </div>
       <HealthScore healthScore={data.props.healthScore} />
     </div>
   </div>
@@ -65,7 +103,7 @@
 
 <section>
   <h2 class="mb-3 text-xl font-bold">Comments</h2>
-  <AddComment />
+  <AddComment recipeId={data.props.recipeId} {rating} />
   {#each comments as comment}
     <Comment
       username={comment.username}
