@@ -62,16 +62,16 @@ export const getCommentsByRecipeId = async (recipe_id) => {
 
 /**
  * @param {number} recipe_id
- * @param {number} user_id
+ * @param {number} username
  * @param {number} rating
  * @param {string} body
  */
-export const createComment = async (recipe_id, user_id, rating, body) => {
+export const createComment = async (recipe_id, username, rating, body) => {
   return await db
     .insert(comments)
     .values({
       recipe_id,
-      user_id,
+      username,
       rating,
       body,
     })
